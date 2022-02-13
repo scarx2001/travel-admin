@@ -11,7 +11,6 @@ import {
   Stack,
   VStack,
 } from "@chakra-ui/react";
-
 export default function WhyChoosUs() {
   return (
     <Box bg="primary-light" py="24">
