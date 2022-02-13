@@ -26,7 +26,7 @@ const Feature = ({ title, text, icon }) => {
       >
         {icon}
       </Flex>
-      <Text fontWeight="extrabold"   fontSize={{ base: "lg", lg: "xl" }}>
+      <Text fontWeight="extrabold" fontSize={{ base: "lg", lg: "xl" }}>
         {title}
       </Text>
       <Text color={"gray.600"}>{text}</Text>
@@ -39,10 +39,9 @@ export default function SimpleThreeColumns() {
     <Box p="24">
       <Container maxW="container.xl">
         <SimpleGrid
-        
           columns={{ base: 1, md: 2, lg: 3 }}
           spacing={{ base: "10", lg: "24" }}
-          alignItems={'center'}
+          alignItems={"center"}
         >
           <Feature
             icon={<Icon as={FcAssistant} w={10} h={10} />}
