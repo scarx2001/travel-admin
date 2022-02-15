@@ -109,6 +109,7 @@ export default function WhyChoosUs() {
                 bg="white"
                 w="200px"
                 height="200px"
+                boxShadow="lg"
               >
                 <Image ml={5} mt={5} w={10} h={10} src="/images/support.svg" />
                 <Text p={3} fontSize={15} fontWeight={"bold"} mt={4}>

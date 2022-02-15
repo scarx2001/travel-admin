@@ -5,6 +5,7 @@ import WhatCanWeDo from "../components/WhatCanWeDo";
 import Footer from "../components/Footer";
 import WhoAreWe from "../components/WhoAreWe";
 import WhyChooseUs from "../components/WhycChooseUs";
+import Reassurance from "../components/Reassurance";
 export default function Index() {
   return (
     <>
@@ -13,6 +14,7 @@ export default function Index() {
       <WhatCanWeDo />
       <Features />
       <WhyChooseUs />
+      <Reassurance />
       <WhoAreWe />
       <Footer />
     </>

@@ -9,7 +9,7 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-export default function Hero() {
+export default function whoarewe() {
   return (
     <Box bg="white" py="24">
       <Container maxW="container.xl">

@@ -3,11 +3,13 @@ import {
   Container,
   Heading,
   HStack,
+  Button,
   Image,
   Stack,
   Text,
   VStack,
 } from "@chakra-ui/react";
+import { ChevronDownIcon } from "@chakra-ui/Icons";
 export default function WhatCanWeDo() {
   return (
     <Box bg="white" py="24" pb={11}>
@@ -18,6 +20,18 @@ export default function WhatCanWeDo() {
           justifyContent="space-between"
           alignItems="center"
         >
+          <Button
+            border="1px"
+            borderColor={"gray.200"}
+            borde
+            color="white"
+            bg="primary"
+            borderRadius="full"
+          >
+            <ChevronDownIcon />
+          </Button>
+          <Text pb="6rem">scroll down</Text>
+
           <Heading
             as="h2"
             fontSize="3xl"

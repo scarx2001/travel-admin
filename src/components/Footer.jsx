@@ -5,8 +5,10 @@ import {
   SimpleGrid,
   Stack,
   HStack,
+  Image,
   Flex,
   Text,
+  Heading,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { EmailIcon } from "@chakra-ui/icons";
@@ -36,12 +38,53 @@ export default function LargeWithLogoLeft() {
     <Box
       bg={useColorModeValue("primary-light", "primary")}
       color={useColorModeValue("gray.700", "gray.200")}
+      borderTopRadius="20%"
+      mt="20rem"
     >
-      <Container as={Stack} mt={33} maxW={"6xl"} py={10}>
+      <Container as={Stack} mt={33} maxW={"5xl"} py={10}>
+        <Box
+          borderRadius="20px"
+          position={"relative"}
+          bottom="10rem"
+          bg="primary"
+          h="15rem"
+          w="95%"
+          p={4}
+          color="white"
+        >
+          <Link
+            href="/"
+            bg="white"
+            color="primary"
+            position="relative"
+            left="45rem"
+            top="5rem"
+            fontWeight="semibold"
+            fontSize="15px"
+            borderRadius="full"
+            borderWidth="10px"
+            px="20px"
+            borderColor="white"
+          >
+            start travel
+          </Link>
+          <Image
+            position={"relative"}
+            top="1rem"
+            left="2rem"
+            w="8rem"
+            src="/images/travel.svg"
+          ></Image>
+          <Box position={"relative"} left="60" bottom="5rem">
+            <Text>Let's Get Started</Text>
+            <Heading fontSize={"2rem"}>Exploring the World</Heading>
+            <Text>Lorem ipsum dolor sit amet consectetur adipisicing</Text>
+          </Box>
+        </Box>
         <SimpleGrid
           templateColumns={{ sm: "1fr 1fr", md: "2fr 1fr 1fr 1fr " }}
           spacing={8}
-          mt={40}
+          mb={40}
         >
           <Stack spacing={6}>
             <Box>
@@ -81,8 +124,12 @@ export default function LargeWithLogoLeft() {
       </Container>
 
       <Box
-        borderTopWidth={1}
-        borderStyle={"solid"}
+        w="85%"
+        border="1px"
+        position="relative"
+        top="9rem"
+        left="6rem"
+        mb="10rem"
         borderColor={useColorModeValue("gray.300")}
       ></Box>
 
