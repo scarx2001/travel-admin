@@ -15,6 +15,7 @@ import {
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
+  Container,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -27,97 +28,102 @@ export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Box>
-      <Flex
-        bg={"primary-light"}
-        color={"primary"}
-        minH={"60px"}
-        py={{ base: 10 }}
-        px={{ base: 4 }}
-        align={"center"}
-      >
+    <Box bg={"primary-light"}>
+      <Container maxW="container.xl">
         <Flex
-          flex={{ base: 1, md: "auto" }}
-          ml={{ base: -2 }}
-          display={{ base: "flex", md: "none" }}
+          color={"primary"}
+          minH={"60px"}
+          py={{ base: 10 }}
+          px={{ base: 4 }}
+          align={"center"}
         >
-          <IconButton
-            onClick={onToggle}
-            icon={
-              isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
-            }
-            variant={"ghost"}
-            aria-label={"Toggle Navigation"}
-          />
-        </Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Text
-            textAlign={useBreakpointValue({ base: "center", md: "left" })}
-            fontFamily={"heading"}
-            fontSize={"30"}
-            color={useColorModeValue("gray.800", "white")}
+          <Flex
+            flex={{ base: 1, md: "auto" }}
+            ml={{ base: -2 }}
+            display={{ base: "flex", md: "none" }}
           >
-            Logo
-          </Text>
-
-          <Flex display={{ base: "none", md: "flex" }} ml={400} mt={11}>
-            <DesktopNav />
+            <IconButton
+              onClick={onToggle}
+              icon={
+                isOpen ? (
+                  <CloseIcon w={3} h={3} />
+                ) : (
+                  <HamburgerIcon w={5} h={5} />
+                )
+              }
+              variant={"ghost"}
+              aria-label={"Toggle Navigation"}
+            />
           </Flex>
+          <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
+            <Text
+              textAlign={useBreakpointValue({ base: "center", md: "left" })}
+              fontFamily={"heading"}
+              fontSize={"30"}
+              color={"gray.800"}
+            >
+              Logo
+            </Text>
+
+            <Flex display={{ base: "none", md: "flex" }} ml={400} mt={11}>
+              <DesktopNav />
+            </Flex>
+          </Flex>
+
+          <Stack
+            flex={{ base: 1, md: 0 }}
+            justify={"flex-end"}
+            direction={"row"}
+            spacing={6}
+          >
+            <Button
+              as={"a"}
+              fontSize={"sm"}
+              color={"black"}
+              fontWeight={600}
+              variant={"link"}
+              href={"#"}
+              _hover={{
+                color: "primary",
+              }}
+            >
+              Sign up
+            </Button>
+            <Button
+              display={{ base: "none", md: "inline-flex" }}
+              fontSize={"sm"}
+              px="10"
+              py="3"
+              borderRadius={"full"}
+              fontWeight={600}
+              color={"white"}
+              bg={"primary"}
+              href={"#"}
+              borderWidth="2px"
+              borderColor="primary"
+              _hover={{
+                textDecoration: "none",
+                bg: "transparent",
+                color: "primary",
+              }}
+            >
+              Login
+            </Button>
+          </Stack>
         </Flex>
 
-        <Stack
-          flex={{ base: 1, md: 0 }}
-          justify={"flex-end"}
-          direction={"row"}
-          spacing={6}
-        >
-          <Button
-            as={"a"}
-            fontSize={"sm"}
-            color={"black"}
-            fontWeight={600}
-            variant={"link"}
-            href={"#"}
-            _hover={{
-              color: "primary",
-            }}
-          >
-            Sign up
-          </Button>
-          <Button
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={"sm"}
-            px="10"
-            py="3"
-            borderRadius={"full"}
-            fontWeight={600}
-            color={"white"}
-            bg={"primary"}
-            href={"#"}
-            borderWidth="2px"
-            borderColor="primary"
-            _hover={{
-              textDecoration: "none",
-              bg: "transparent",
-              color: "primary",
-            }}
-          >
-            Login
-          </Button>
-        </Stack>
-      </Flex>
-
-      <Collapse in={isOpen} animateOpacity>
-        <MobileNav />
-      </Collapse>
+        <Collapse in={isOpen} animateOpacity>
+          <MobileNav />
+        </Collapse>
+      </Container>
     </Box>
   );
 }
 
 const DesktopNav = () => {
-  const linkColor = useColorModeValue("gray.600", "gray.200");
-  const linkHoverColor = useColorModeValue("gray.800", "white");
-  const popoverContentBgColor = useColorModeValue("white", "gray.800");
+  const linkColor = "gray.600";
+  const linkHoverColor = "gray.800";
+  const popoverContentBgColor = "white";
 
   return (
     <Stack direction={"row"} spacing={4}>
@@ -126,11 +132,12 @@ const DesktopNav = () => {
           <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
               <Link
-                p={10}
                 href={navItem.href ?? "#"}
+                px={5}
                 fontSize={"sm"}
-                fontWeight={500}
-                color={linkColor}
+                fontWeight="bold"
+                textTransform="capitalize"
+                color={"gray.600"}
                 _hover={{
                   color: "primary",
                 }}
@@ -170,7 +177,7 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
       display={"block"}
       p={2}
       rounded={"md"}
-      _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
+      _hover={{ bg: "pink.50" }}
     >
       <Stack direction={"row"} align={"center"}>
         <Box>
@@ -201,11 +208,7 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
 
 const MobileNav = () => {
   return (
-    <Stack
-      bg={useColorModeValue("primary-light", "gray.800")}
-      p={4}
-      display={{ md: "none" }}
-    >
+    <Stack bg={"primary-light"} p={4} display={{ md: "none" }}>
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
@@ -230,7 +233,7 @@ const MobileNavItem = ({ label, children, href }) => {
       >
         <Text
           fontWeight={600}
-          color={useColorModeValue("black", "primary")}
+          color={"black"}
           _hover={{
             color: "primary",
           }}
@@ -254,7 +257,7 @@ const MobileNavItem = ({ label, children, href }) => {
           pl={4}
           borderLeft={1}
           borderStyle={"solid"}
-          borderColor={useColorModeValue("gray.200", "gray.700")}
+          borderColor={"gray.200"}
           align={"start"}
         >
           {children &&

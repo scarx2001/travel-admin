@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Container,
   Heading,
   HStack,
@@ -9,6 +10,8 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import { ChevronDownIcon } from "@chakra-ui/Icons";
+
 export default function Hero() {
   return (
     <Box bg="primary-light" py="24">
@@ -89,6 +92,19 @@ export default function Hero() {
             <Image src="/images/hero.svg" />
           </Box>
         </Stack>
+        <Button
+          border="1px"
+          borderColor={"gray.200"}
+          borde
+          color="white"
+          bg="primary"
+          borderRadius="full"
+          w={12}
+          h={12}
+        >
+          <ChevronDownIcon />
+        </Button>
+        <Text pb="6rem">scroll down</Text>
       </Container>
     </Box>
   );

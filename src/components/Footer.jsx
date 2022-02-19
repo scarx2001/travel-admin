@@ -10,6 +10,7 @@ import {
   Text,
   Heading,
   useColorModeValue,
+  VStack,
 } from "@chakra-ui/react";
 import { EmailIcon } from "@chakra-ui/icons";
 const Logo = () => {
@@ -33,122 +34,133 @@ const ListHeader = ({ children }) => {
   );
 };
 
-export default function LargeWithLogoLeft() {
+const TravelCard = () => {
   return (
     <Box
-      bg={useColorModeValue("primary-light", "primary")}
-      color={useColorModeValue("gray.700", "gray.200")}
-      borderTopRadius="20%"
-      mt="20rem"
+      borderRadius="2xl"
+      bg="primary"
+      py={12}
+      px={12}
+      color="white"
+      maxW={{ base: "container.sm", lg: "container.lg" }}
+      w="95%"
+      mx="auto"
+      mb={-44}
+      position="relative"
     >
-      <Container as={Stack} mt={33} maxW={"5xl"} py={10}>
-        <Box
-          borderRadius="20px"
-          position={"relative"}
-          bottom="10rem"
-          bg="primary"
-          h="15rem"
-          w="95%"
-          p={4}
-          color="white"
+      <Stack
+        direction={{ base: "column", lg: "row" }}
+        justifyContent="space-between"
+        alignItems="center"
+        spacing={{ base: 8, lg: 0 }}
+      >
+        <Image w={{ base: 44, lg: "60" }} src="/images/travel.svg"></Image>
+        <VStack
+          alignItems={{ base: "center", lg: "flex-start" }}
+          textAlign={{ base: "center", lg: "left" }}
         >
-          <Link
-            href="/"
-            bg="white"
-            color="primary"
-            position="relative"
-            left="45rem"
-            top="5rem"
-            fontWeight="semibold"
-            fontSize="15px"
-            borderRadius="full"
-            borderWidth="10px"
-            px="20px"
-            borderColor="white"
-          >
-            start travel
-          </Link>
-          <Image
-            position={"relative"}
-            top="1rem"
-            left="2rem"
-            w="8rem"
-            src="/images/travel.svg"
-          ></Image>
-          <Box position={"relative"} left="60" bottom="5rem">
-            <Text>Let's Get Started</Text>
-            <Heading fontSize={"2rem"}>Exploring the World</Heading>
-            <Text>Lorem ipsum dolor sit amet consectetur adipisicing</Text>
-          </Box>
-        </Box>
-        <SimpleGrid
-          templateColumns={{ sm: "1fr 1fr", md: "2fr 1fr 1fr 1fr " }}
-          spacing={8}
-          mb={40}
+          <Text>Let's Get Started</Text>
+          <Heading fontSize={"2rem"}>Exploring the World</Heading>
+          <Text>Lorem ipsum dolor sit amet consectetur adipisicing</Text>
+        </VStack>
+        <Link
+          href="/"
+          bg="white"
+          color="primary"
+          position="relative"
+          fontWeight="semibold"
+          fontSize="15px"
+          borderRadius="full"
+          borderWidth="10px"
+          px="20px"
+          borderColor="white"
         >
-          <Stack spacing={6}>
-            <Box>
-              <Logo color={useColorModeValue("gray.700", "white")} />
-            </Box>
-            <Text fontSize={"sm"}>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores
-              adipisci sunt similique voluptates odio, labore, nemo ad incidunt
-              quam fugiat accusamus eius libero
-            </Text>
-          </Stack>
+          start travel
+        </Link>
+      </Stack>
+    </Box>
+  );
+};
 
-          <Stack align={"flex-start"}>
-            <ListHeader>QUICK LINKS</ListHeader>
-            <Link href={"#"}>Home</Link>
-            <Link href={"#"}>Sercives & Pricing</Link>
-            <Link href={"#"}>Contact Us</Link>
-            <Link href={"#"}>Login</Link>
-          </Stack>
-          <Stack align={"flex-start"}>
-            <ListHeader>SERVICES</ListHeader>
-            <Link href={"#"}>Concierge Services</Link>
-            <Link href={"#"}>Car Rental</Link>
-            <Link href={"#"}>Hotel/Flights Booking</Link>
-            <Link href={"#"}>Online Visa Application</Link>
-          </Stack>
-          <Stack align={"flex-start"}>
-            <ListHeader>CONTACT INFO</ListHeader>
-            <Link href={"#"}>Jonquiere, 84150</Link>
-            <Link href={"#"}>
-              {" "}
-              <EmailIcon />
-              Info@gmail.com
-            </Link>
-          </Stack>
-        </SimpleGrid>
-      </Container>
+export default function LargeWithLogoLeft() {
+  return (
+    <>
+      <TravelCard />
 
       <Box
-        w="85%"
-        border="1px"
-        position="relative"
-        top="9rem"
-        left="6rem"
-        mb="10rem"
-        borderColor={useColorModeValue("gray.300")}
-      ></Box>
-
-      <Container
-        as={Stack}
-        maxW={"6xl"}
-        py={4}
-        direction={{ base: "column", md: "row" }}
-        spacing={4}
-        justify={{ md: "space-between" }}
-        align={{ md: "center" }}
+        bg={useColorModeValue("primary-light", "primary")}
+        color={useColorModeValue("gray.700", "gray.200")}
+        borderTopRadius="95%150px"
       >
-        <Text>2022 Copyright. All Right Reserved</Text>
-        <HStack align={"flex-start"}>
-          <Link href={"#"}>Terms |</Link>
-          <Link href={"#"}>Privacy |</Link>
-          <Link href={"#"}>Contact</Link>
-        </HStack>
-      </Container>
-    </Box>
+        <Container as={Stack} maxW="container.xl" pt={72} pb={12}>
+          <SimpleGrid
+            templateColumns={{ sm: "1fr 1fr", md: "2fr 1fr 1fr 1fr " }}
+            spacing={8}
+            mb={40}
+          >
+            <Stack spacing={6}>
+              <Box>
+                <Logo color={useColorModeValue("gray.700", "white")} />
+              </Box>
+              <Text fontSize={"sm"}>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Maiores adipisci sunt similique voluptates odio, labore, nemo ad
+                incidunt quam fugiat accusamus eius libero
+              </Text>
+            </Stack>
+
+            <Stack align={"flex-start"}>
+              <ListHeader>QUICK LINKS</ListHeader>
+              <Link href={"#"}>Home</Link>
+              <Link href={"#"}>Sercives & Pricing</Link>
+              <Link href={"#"}>Contact Us</Link>
+              <Link href={"#"}>Login</Link>
+            </Stack>
+            <Stack align={"flex-start"}>
+              <ListHeader>SERVICES</ListHeader>
+              <Link href={"#"} fontSize="sm">
+                Concierge Services
+              </Link>
+              <Link href={"#"} fontSize="sm">
+                Car Rental
+              </Link>
+              <Link href={"#"} fontSize="sm">
+                Hotel/Flights Booking
+              </Link>
+              <Link href={"#"} fontSize="sm">
+                Online Visa Application
+              </Link>
+            </Stack>
+            <Stack align={"flex-start"}>
+              <ListHeader>CONTACT INFO</ListHeader>
+              <Link href={"#"}>Jonquiere, 84150</Link>
+              <Link href={"#"}>
+                {" "}
+                <EmailIcon />
+                Info@gmail.com
+              </Link>
+            </Stack>
+          </SimpleGrid>
+
+          <Box border="1px" borderColor={useColorModeValue("gray.300")}></Box>
+
+          <Stack
+            maxW={"6xl"}
+            py={4}
+            direction={{ base: "column", md: "row" }}
+            spacing={4}
+            justify={{ md: "space-between" }}
+            align={{ md: "center" }}
+          >
+            <Text>2022 Copyright. All Right Reserved</Text>
+            <HStack align={"flex-start"}>
+              <Link href={"#"}>Terms |</Link>
+              <Link href={"#"}>Privacy |</Link>
+              <Link href={"#"}>Contact</Link>
+            </HStack>
+          </Stack>
+        </Container>
+      </Box>
+    </>
   );
 }

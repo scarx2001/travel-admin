@@ -13,6 +13,7 @@ import {
   IconButton,
 } from "@chakra-ui/react";
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
+import { BsStarFill } from "react-icons/bs";
 
 export default function Reassurance() {
   return (
@@ -90,42 +91,33 @@ export default function Reassurance() {
                 w="300px"
                 height="250px"
                 boxShadow="lg"
+                p={8}
               >
-                <Image
-                  position="relative"
-                  left="8rem"
-                  top="1rem"
-                  w={7}
-                  h={7}
-                  src="/images/like.svg"
-                />
-
-                <Text
-                  textAlign="center"
-                  fontSize={13}
-                  position="relative"
-                  top="3rem"
+                <VStack
+                  justifyContent="center"
+                  alignItems="center"
+                  h="full"
+                  spacing={5}
                 >
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem
-                  ipsum dolor sit amet consectetur adipisicing elit.
-                </Text>
-                <Text
-                  position="relative"
-                  top="5rem"
-                  left="7rem"
-                  fontSize={15}
-                  fontWeight={"bold"}
-                >
-                  john albert
-                </Text>
-                <Image
-                  position="relative"
-                  top="5rem"
-                  left="8rem"
-                  w="3rem"
-                  h="3rem"
-                  src="/images/rating.svg"
-                ></Image>
+                  <Image w={7} h={7} src="/images/like.svg" />
+                  <Text textAlign="center" fontSize={13}>
+                    Lorem ipsum dolor sit amet consectetur adipisicing
+                    elit.Lorem ipsum dolor sit amet consectetur adipisicing
+                    elit.
+                  </Text>
+                  <VStack spacing={0}>
+                    <Text fontSize={15} fontWeight={"bold"}>
+                      john albert
+                    </Text>
+                    <HStack spacing={0.5}>
+                      <Icon as={BsStarFill} w={3} h={3} color="primary" />
+                      <Icon as={BsStarFill} w={3} h={3} color="primary" />
+                      <Icon as={BsStarFill} w={3} h={3} color="primary" />
+                      <Icon as={BsStarFill} w={3} h={3} color="primary" />
+                      <Icon as={BsStarFill} w={3} h={3} color="primary" />
+                    </HStack>
+                  </VStack>
+                </VStack>
               </Box>
               <Box
                 borderTop={"4px"}
